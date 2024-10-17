@@ -10,8 +10,8 @@ margin = 1.5
 embedding_dim = 100
 rel_embedding_dim = 128
 learning_rate = 1e-3
-epochs = 120
-function = 'transH'
+epochs = 80
+function = 'transR'
 
 model = DistanceModel(entity_dic_size, relation_dic_size, embedding_dim, margin, function, c=0.1,
                       relation_embedding_dim=rel_embedding_dim).to(device)
