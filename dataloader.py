@@ -1,4 +1,5 @@
 import csv
+import multiprocessing
 import random
 import torch
 from torch.utils.data import DataLoader
@@ -84,7 +85,7 @@ class Dataset(torch.utils.data.Dataset):
 
 def collate_fn(batch):
     pos = batch
-    neg = build_neg(batch, data, entity_dic_size)
+    neg = build_neg(batch, data1, entity_dic_size)
     return {
             'pos': pos,
             'neg': neg
@@ -94,7 +95,7 @@ def collate_fn(batch):
 data, entity_dic, relation_dic = get_data(file_path)
 entity_dic_size = len(entity_dic)
 relation_dic_size = len(relation_dic)
-
+data1 = set(data)
 dataset = Dataset(data)
 data_loader = DataLoader(dataset=dataset, batch_size=batch_size, collate_fn=collate_fn, shuffle=True, drop_last=False)
 
