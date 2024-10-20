@@ -1,25 +1,27 @@
 import torch
-from tqdm import tqdm, trange  # 引入 tqdm 进度条模块
-import random  # 用于随机生成索引
+from tqdm import tqdm, trange
+import random
+from dataloader import data, entity_dic_size
 
-from dataloader import data, entity_dic, entity_dic_size, relation_dic_size, relation_dic
-from module.KgEmbedding import get_score
+path = './save_weight/transH_2048_1_200.pkl'
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = torch.load('D:/PyStudy/Knowledge_Embedding/save_weight/transR_2048_1.5_80.pkl').to(device)
-test_size = 2500
+model = torch.load(path).to(device)
+test_size = 1000
 num_test = 1
 
 
 def evaluate_mean_rank(model, test_data, num_entities, device):
-    model.eval()  # 进入评估模式
+    print(f'model:{path}')
+    model.eval()
     total_rank = 0
-
-    with torch.no_grad():  # 评估时不需要计算梯度
-        for idx in trange(num_test, desc="Evaluating_all", ncols=100):
+    total_hit = 0
+    total_MRR = 0
+    with torch.no_grad():
+        for j in trange(num_test, desc="Evaluating_all", ncols=100):
             eval_data = []
             for i in range(test_size):
-                data = list(random.choice(test_data))  # 随机选择测试数据
+                data = list(random.choice(test_data))
                 eval_data.append(data)
 
             eval_data = torch.tensor(eval_data).to(device)
@@ -42,20 +44,29 @@ def evaluate_mean_rank(model, test_data, num_entities, device):
 
             # 计算每一行中原始尾实体的排名
             index_sum = 0
+            hit = 0
+            mrr = 0.0
             for row in sorted_scores:
                 zero_indices = (row == 0).nonzero(as_tuple=True)[0] + 1  # 找到原始得分的排名
                 index_sum += zero_indices.item()
-
+                mrr += 1 / zero_indices.item()
+                if zero_indices.item() <= 10:
+                    hit += 1
+            total_hit += hit
             total_rank += index_sum
+            total_MRR += mrr
+
 
     mean_rank = total_rank / (test_size * num_test)
-    return mean_rank
+    hit10 = total_hit / (test_size * num_test)
+    mrr = total_MRR / (test_size * num_test)
+    return mean_rank, hit10, mrr
 
 
-# 示例：假设你有一个训练好的模型和测试数据
-test_data = data  # 你的测试数据，保持原始格式
-num_entities = entity_dic_size  # 实体的数量
 
-# 评估 Mean Rank
-mean_rank_value = evaluate_mean_rank(model, test_data, num_entities, device)
-print(f"Mean Rank: {mean_rank_value}")
+test_data = data
+num_entities = entity_dic_size
+
+
+mean_rank, hit10, MRR = evaluate_mean_rank(model, test_data, num_entities, device)
+print(f"Mean Rank: {mean_rank},hit@10:{hit10},MRR:{MRR:.4f}")
