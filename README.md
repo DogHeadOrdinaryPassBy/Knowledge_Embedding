@@ -10,7 +10,7 @@
 
 ## 环境依赖
 环境依赖
-该项目基于 Python 和 PyTorch，实现了知识图谱嵌入模型的训练与评估。运行本项目需要以下依赖库：
+该项目基于 Python 和 PyTorch，实现了知识图谱嵌入模型的训练,训练效果可视化以及评估。运行本项目需要以下依赖库：
 
 Python 3.x  
 torch==1.x  
@@ -35,4 +35,18 @@ csv
 ## 数据说明
 dataset/subgraph_kgp1.txt 包含了知识图谱数据，格式为多个字段，每一行表示一个三元组（头实体、关系、尾实体），并附加了一些辅助信息。项目中只处理了中文语言的三元组。
 
-# 运行步骤
+## 使用说明
+### 1. 数据加载与负样本生成
+在 dataloader.py 中，实现了加载知识图谱数据集并构建负样本的逻辑。具体包括以下部分：
+
+get_data(path): 从给定的路径加载知识图谱数据，并生成实体和关系的字典映射。
+build_neg(batch, data, entity_dic_size): 根据正样本随机替换头或尾实体，生成负样本。
+使用 torch.utils.data.Dataset 构建了一个可迭代的数据集，并通过 DataLoader 加载数据。
+
+### 2. 知识图谱嵌入模型
+在 module/KgEmbedding.py 中定义了嵌入模型 DistanceModel。支持 TransE、TransH、TransR 模型结构。模型实现了以下功能：
+
+forward(): 根据正负样本计算模型分数。
+get_loss(): 基于正负样本的分数计算损失函数，采用margin-based ranking loss。
+你可以根据需要选择不同的模型（如 TransE、TransH、TransR）。
+
