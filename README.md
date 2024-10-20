@@ -20,25 +20,16 @@ csv
 
 ## 文件结构
 
-├── dataset/                       _数据集文件夹_  
-
-│   └── subgraph_kgp1.txt          _知识图谱数据集_  
-
-├── module/                         
-
-│   └── KgEmbedding.py             _嵌入模型的定义与实现_  
-
-├── save_weight/
-│   └──xxx.pkl                     _训练完毕的模型_  
-
-│   └──xxx.pt                      _训练完毕的权重文件_  
-
-├── dataloader.py                  _数据加载与负样本构建_  
-
-├── train.py                       _训练模型脚本_  
-
-├── test.py                        _模型评估脚本_  
-
+├── dataset/                       _数据集文件夹_
+│   └── subgraph_kgp1.txt          _知识图谱数据集_
+├── module/
+│   └── KgEmbedding.py             _嵌入模型的定义与实现_
+├── save_weight/  
+│   └──xxx.pkl                     _训练完毕的模型_    
+│   └──xxx.pt                      _训练完毕的权重文件_
+├── dataloader.py                  _数据加载与负样本构建_
+├── train.py                       _训练模型脚本_
+├── test.py                        _模型评估脚本_
 └── README.md                      _项目说明文档_
 
 ## 数据说明
