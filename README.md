@@ -63,9 +63,9 @@ train.py 包含了模型的训练逻辑：
 -使用 tqdm 显示训练进度，记录每个 epoch 的损失值，并将结果保存为模型文件。  
 训练完成后，会保存以下文件：
 
--训练好的模型参数
--实体与关系的嵌入
--损失曲线图
+-训练好的模型参数  
+-实体与关系的嵌入  
+-损失曲线图  
 
 ### 4. 模型评估
 evaluate.py 实现了模型的评估逻辑。该部分主要计算模型的MEAN RANK 和 HITS@10：
@@ -76,20 +76,13 @@ evaluate.py 实现了模型的评估逻辑。该部分主要计算模型的MEAN 
 ## 运行步骤
 **下载依赖** 在运行代码之前，请确保你已经安装了项目所需的依赖库。可以使用如下命令安装依赖：
 
-'''
-pip install torch tqdm matplotlib
-'''
+’’pip install torch tqdm matplotlib’’
 **准备数据集** 将 subgraph_kgp1.txt 数据集文件放置到 dataset/ 文件夹下，确保数据集路径正确。
 
 **运行模型训练** 在项目根目录下，运行 train.py 来训练模型：
-
-'''
-python train.py
-'''
+’’python train.py’’
 该脚本会输出训练过程中的损失，并将训练好的模型与嵌入参数保存到 save_weight/ 文件夹，将训练过程的损失函数保存到根目录。
 
 **模型评估** 在模型训练完成后，运行 tset.py 进行评估：
-'''
-python test.py
-'''
+’’python test.py’’
 该脚本会输出评估过程中模型的MEAN RANK 和 HITS@10。
