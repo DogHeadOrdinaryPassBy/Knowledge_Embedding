@@ -20,17 +20,17 @@ csv
 
 ## 文件结构
 
-├── dataset/                 &nbsp;&nbsp;&nbsp;      _数据集文件夹_  
-│   └── subgraph_kgp1.txt         &nbsp;&nbsp;&nbsp;  _知识图谱数据集_  
+├── dataset/                 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;      _数据集文件夹_  
+│   └── subgraph_kgp1.txt        &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  _知识图谱数据集_  
 ├── module/  
-│   └── KgEmbedding.py        &nbsp;&nbsp;&nbsp;      _嵌入模型的定义与实现_  
+│   └── KgEmbedding.py       &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;      _嵌入模型的定义与实现_  
 ├── save_weight/    
-│   └──xxx.pkl                &nbsp;&nbsp;&nbsp;      _训练完毕的模型_      
-│   └──xxx.pt                &nbsp;&nbsp;&nbsp;       _训练完毕的权重文件_  
-├── dataloader.py             &nbsp;&nbsp;&nbsp;      _数据加载与负样本构建_  
-├── train.py                &nbsp;&nbsp;&nbsp;       _训练模型脚本_  
-├── test.py                 &nbsp;&nbsp;&nbsp;      _模型评估脚本_  
-└── README.md               &nbsp;&nbsp;&nbsp;       _项目说明文档_  
+│   └──xxx.pkl               &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;      _训练完毕的模型_      
+│   └──xxx.pt              &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;       _训练完毕的权重文件_  
+├── dataloader.py           &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;      _数据加载与负样本构建_  
+├── train.py                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;       _训练模型脚本_  
+├── test.py                &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;      _模型评估脚本_  
+└── README.md             &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;       _项目说明文档_  
 
 ## 数据说明
 dataset/subgraph_kgp1.txt 包含了知识图谱数据，格式为多个字段，每一行表示一个三元组（头实体、关系、尾实体），并附加了一些辅助信息。项目中只处理了中文语言的三元组。
