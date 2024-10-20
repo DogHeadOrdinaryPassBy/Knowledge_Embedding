@@ -12,24 +12,33 @@
 环境依赖
 该项目基于 Python 和 PyTorch，实现了知识图谱嵌入模型的训练与评估。运行本项目需要以下依赖库：
 
-Python 3.x
-torch==1.x
-tqdm==4.x
-matplotlib==3.x
+Python 3.x  
+torch==1.x  
+tqdm==4.x  
+matplotlib==3.x  
 csv
 
 ## 文件结构
 
-├── dataset/                       _数据集文件夹_
-│   └── subgraph_kgp1.txt          _知识图谱数据集_
-├── module/                       
-│   └── KgEmbedding.py             _嵌入模型的定义与实现_
+├── dataset/                       _数据集文件夹_  
+
+│   └── subgraph_kgp1.txt          _知识图谱数据集_  
+
+├── module/                         
+
+│   └── KgEmbedding.py             _嵌入模型的定义与实现_  
+
 ├── save_weight/
-│   └──xxx.pkl                     _训练完毕的模型_
-│   └──xxx.pt                      _训练完毕的权重文件_
-├── dataloader.py                  _数据加载与负样本构建_
-├── train.py                       _训练模型脚本_
-├── test.py                        _模型评估脚本_
+│   └──xxx.pkl                     _训练完毕的模型_  
+
+│   └──xxx.pt                      _训练完毕的权重文件_  
+
+├── dataloader.py                  _数据加载与负样本构建_  
+
+├── train.py                       _训练模型脚本_  
+
+├── test.py                        _模型评估脚本_  
+
 └── README.md                      _项目说明文档_
 
 ## 数据说明
