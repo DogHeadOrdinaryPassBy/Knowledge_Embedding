@@ -116,6 +116,8 @@ dataset/subgraph_kgp1.txt 包含了知识图谱数据，格式为多个字段，
 ## 参考文献
 若使用本项目中的代码或方法，请引用相关论文：
 
-TransE: Bordes A., Usunier N., Garcia-Duran A., Weston J., Yakhnenko O. Translating Embeddings for Modeling Multi-relational Data. NeurIPS 2013.
-TransH:
-TransR:
+**TransE:** Bordes A., Usunier N., Garcia-Duran A., Weston J., Yakhnenko O. Translating Embeddings for Modeling Multi-relational Data. NeurIPS 2013.  
+
+**TransH:**  
+
+**TransR:**
