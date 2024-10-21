@@ -63,6 +63,7 @@ dataset/subgraph_kgp1.txt 包含了知识图谱数据，格式为多个字段，
 
 -通过 `torch.optim.Adam` 优化器进行参数更新。  
 -使用 `tqdm` 显示训练进度，记录每个 `epoch` 的损失值，并将结果保存为模型文件。  
+-支持自定义`model`，`margin`，`epoch`，`embedding_dim`等参数,请按需调整
 
 训练完成后，会保存以下文件：
 
