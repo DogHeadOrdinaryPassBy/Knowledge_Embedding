@@ -18,7 +18,8 @@ Python 3.x
 torch==1.x  
 tqdm==4.x  
 matplotlib==3.x  
-csv
+csv  
+安装依赖的bash代码在接下来的部分  
 
 ## 文件结构
 
@@ -65,7 +66,7 @@ dataset/subgraph_kgp1.txt 包含了知识图谱数据，格式为多个字段，
 -使用 `tqdm` 显示训练进度，记录每个 `epoch` 的损失值，并将结果保存为模型文件。  
 -支持自定义`model`，`margin`，`epoch`，`embedding_dim`等参数,请按需调整
 
-训练完成后，会保存以下文件：
+训练完成后，以下文件将被保存至指定路径：
 
 -训练好的模型参数  
 -实体与关系的嵌入  
@@ -104,7 +105,8 @@ pip install torch tqdm matplotlib
 python train.py
 ```
 
-该脚本会输出训练过程中的损失，并将训练好的模型与嵌入参数保存到 save_weight/ 文件夹，将训练过程的损失函数保存到根目录。
+该脚本会输出训练过程中的损失，并将训练好的模型与嵌入参数保存到 save_weight/ 文件夹，将训练过程的损失函数保存到根目录。  
+在训练前,你可以在文件中按需修改参数
 
 **模型评估**   
 在模型训练完成后，运行 `test.py` 进行评估：  
