@@ -9,6 +9,7 @@
 -模型评估（Mean Rank 以及 hits@10）  
 -实体预测和关系预测  
 
+我们的实现基于 TransE [1]、TransH [2] 和 TransR [3] 模型，它们是知识图谱嵌入的基础技术。
 ## 环境依赖
 环境依赖
 该项目基于 Python 和 PyTorch，实现了知识图谱嵌入模型的训练,训练效果可视化以及评估。运行本项目需要以下依赖库：
@@ -88,7 +89,9 @@ dataset/subgraph_kgp1.txt 包含了知识图谱数据，格式为多个字段，
 **下载依赖**   
 在运行代码之前，请确保你已经安装了项目所需的依赖库。可以使用如下命令安装依赖：
 
-```pip install torch tqdm matplotlib```  
+```bash
+pip install torch tqdm matplotlib
+```  
 
 **准备数据集**   
 将 subgraph_kgp1.txt 数据集文件放置到 dataset/ 文件夹下，确保数据集路径正确。
@@ -96,28 +99,35 @@ dataset/subgraph_kgp1.txt 包含了知识图谱数据，格式为多个字段，
 **运行模型训练**  
 在项目根目录下，运行 `train.py` 来训练模型：  
 
-```python train.py```
+```bash
+python train.py
+```
 
 该脚本会输出训练过程中的损失，并将训练好的模型与嵌入参数保存到 save_weight/ 文件夹，将训练过程的损失函数保存到根目录。
 
 **模型评估**   
 在模型训练完成后，运行 `test.py` 进行评估：  
 
-```python test.py```
+```bash
+python test.py
+```
 
 该脚本会输出评估过程中模型的**MEAN RANK** 和 **HITS@10**。
 
 **实体预测和关系预测**    
 同样是在模型训练完成后，运行 `eval.py`：  
 
-```python eval.py```
+```bash
+python eval.py
+```
 
 该脚本会输出给定输入实体和关系的前五个最相关的预测结果并将其保存至指定路径
+
+
 ## 参考文献
-若使用本项目中的代码或方法，请引用相关论文：
 
-**TransE:** Bordes A., Usunier N., Garcia-Duran A., Weston J., Yakhnenko O. Translating Embeddings for Modeling Multi-relational Data. NeurIPS 2013.  
+[1] Bordes, A., Usunier, N., Garcia-Duran, A., Weston, J., & Yakhnenko, O. (2013). Translating Embeddings for Modeling Multi-relational Data. *Advances in Neural Information Processing Systems (NeurIPS)*, 2787-2795.
 
-**TransH:**  
+[2] Wang, Z., Zhang, J., Feng, J., & Chen, Z. (2014). Knowledge Graph Embedding by Translating on Hyperplanes. *Proceedings of the Twenty-Eighth AAAI Conference on Artificial Intelligence*, 1112-1119.
 
-**TransR:**
+[3] Lin, Y., Liu, Z., Sun, M., Liu, Y., & Zhu, X. (2015). Learning Entity and Relation Embeddings for Knowledge Graph Completion. *Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence*, 2181-2187.
