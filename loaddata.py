@@ -31,3 +31,5 @@ def load_data(file_path):
 file_path = 'D:\PyStudy\Knowledge-embedding\dataset\subgraph_kgp1.txt'
 triples = load_data(file_path)
 print(triples[:5])  # 打印前5个三元组
+
+##此注释为修改submit内容用
